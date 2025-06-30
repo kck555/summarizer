@@ -5,3 +5,4 @@ transformers
 torch
 PyPDF2
 requests
+pypdf
