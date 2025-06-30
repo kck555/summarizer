@@ -332,7 +332,7 @@ if "last_summary" in st.session_state and st.session_state["last_summary"]:
         mime="text/plain"
     )
 
-    if st.button("🧹 Clear Session & Start Over"):
-        st.session_state.clear()
-        st.rerun()
-
+    for var_name in ["tokenizer", "model", "summarizer"]:
+        if var_name in locals():
+            del locals()[var_name]
+    gc.collect()
