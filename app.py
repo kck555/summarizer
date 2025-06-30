@@ -332,7 +332,20 @@ if "last_summary" in st.session_state and st.session_state["last_summary"]:
         mime="text/plain"
     )
 
-    for var_name in ["tokenizer", "model", "summarizer"]:
-        if var_name in locals():
-            del locals()[var_name]
+    try:
+        del tokenizer
+    except NameError:
+        pass
+        
+    try:
+        del model
+    except NameError:
+        pass
+    
+    try:
+        del summarizer
+    except NameError:
+        pass
+        
     gc.collect()
+
